@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="50" viewBox="0 0 200 50">
+  <!-- Fond rectangulaire arrondi -->
+  <rect x="10" y="10" width="180" height="30" rx="15" ry="15" fill="#4e73df" />
+  
+  <!-- Symbole de diplôme (chapeau) -->
+  <path d="M40 20 L55 15 L70 20 L55 25 Z" fill="white" />
+  <path d="M55 25 L55 33 M40 20 L40 28 L55 33 L70 28 L70 20" fill="none" stroke="white" stroke-width="1.5" />
+  
+  <!-- Texte "UniSelect" -->
+  <text x="80" y="30" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">
+    Uni<tspan fill="#ffcc00">Select</tspan>
+  </text>
+</svg>
