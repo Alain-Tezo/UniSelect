@@ -6,6 +6,11 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
+    /**
+     * Migration fusionnée : 
+     * - Création de la table etudiants
+     * - Ajout de date_notification (2025_05_17_022900)
+     */
     public function up()
     {
         Schema::create('etudiants', function (Blueprint $table) {
@@ -38,6 +43,7 @@ return new class extends Migration
             $table->float('points_selection', 10, 2)->default(0);
             $table->json('details_selection')->nullable();
             $table->boolean('notification_envoyee')->default(false);
+            $table->timestamp('date_notification')->nullable();
             $table->timestamps();
         });
     }

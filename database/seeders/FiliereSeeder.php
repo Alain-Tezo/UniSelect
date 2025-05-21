@@ -18,11 +18,13 @@ class FiliereSeeder extends Seeder
         Filiere::create([
             'nom' => 'Informatique',
             'description' => 'Formation en informatique et développement logiciel',
+            'est_selective' => true,
         ]);
 
         Filiere::create([
             'nom' => 'ICT4D',
             'description' => 'Information and Communication Technologies for Development',
+            'est_selective' => true,
         ]);
 
         Filiere::create([
