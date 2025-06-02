@@ -1,14 +1,36 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="200" height="50" viewBox="0 0 200 50">
-  <!-- Fond rectangulaire arrondi -->
-  <rect x="10" y="10" width="180" height="30" rx="15" ry="15" fill="#4e73df" />
+  <!-- Fond du logo universitaire avec effet de bouclier/blason -->
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#3a0ca3;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4361ee;stop-opacity:1" />
+    </linearGradient>
+  </defs>
   
-  <!-- Symbole de diplôme (chapeau) -->
-  <path d="M40 20 L55 15 L70 20 L55 25 Z" fill="white" />
-  <path d="M55 25 L55 33 M40 20 L40 28 L55 33 L70 28 L70 20" fill="none" stroke="white" stroke-width="1.5" />
+  <!-- Bouclier/blason universitaire -->
+  <path d="M40 5 L65 5 L70 15 L65 25 L52.5 40 L40 25 L35 15 Z" fill="url(#grad1)" stroke="#gold" stroke-width="0.5" />
   
-  <!-- Texte "UniSelect" -->
-  <text x="80" y="30" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">
-    Uni<tspan fill="#ffcc00">Select</tspan>
+  <!-- Livre ouvert au centre du blason -->
+  <path d="M43 20 L52.5 22 L62 20 L62 25 L52.5 28 L43 25 Z" fill="#fff" stroke="#d4af37" stroke-width="0.5" />
+  <path d="M52.5 22 L52.5 28" fill="none" stroke="#d4af37" stroke-width="0.5" />
+  
+  <!-- Colonnes stylisées -->
+  <rect x="45" y="12" width="2" height="8" rx="0.5" ry="0.5" fill="#fff" />
+  <rect x="49" y="12" width="2" height="8" rx="0.5" ry="0.5" fill="#fff" />
+  <rect x="53" y="12" width="2" height="8" rx="0.5" ry="0.5" fill="#fff" />
+  <rect x="57" y="12" width="2" height="8" rx="0.5" ry="0.5" fill="#fff" />
+  
+  <!-- Toit des colonnes -->
+  <path d="M43 12 L61 12 L59 10 L45 10 Z" fill="#fff" />
+  
+  <!-- Étoile (symbole d'excellence) -->
+  <path d="M52.5 7 L53.5 9 L56 9 L54 10.5 L55 13 L52.5 11.5 L50 13 L51 10.5 L49 9 L51.5 9 Z" fill="#ffcc00" />
+  
+  <!-- Texte "UniSelect" avec style universitaire élégant -->
+  <text x="80" y="30" font-family="'Times New Roman', serif" font-size="20" font-weight="bold" fill="#3a0ca3" style="text-shadow: 1px 1px 1px rgba(0,0,0,0.2)">
+    <tspan fill="#3a0ca3">Uni</tspan><tspan fill="#4361ee">Select</tspan>
   </text>
+  
+
 </svg>
