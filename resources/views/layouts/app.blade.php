@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="description" content="Système de sélection universitaire">
 
@@ -52,14 +52,19 @@
             flex-direction: column;
             color: var(--text-color);
             transition: all 0.3s ease;
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
         }
 
         /* Navbar responsif */
         .navbar {
             background-color: var(--navbar-bg) !important;
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             box-shadow: 0 5px 15px var(--shadow-color);
             padding: 0.8rem 1rem;
+            position: relative;
+            z-index: 1030;
         }
 
         .navbar-brand {
@@ -75,6 +80,15 @@
         .navbar-brand img {
             height: 40px;
             width: auto;
+        }
+        
+        @media (max-width: 576px) {
+            .navbar-brand img {
+                height: 32px;
+            }
+            .navbar-brand {
+                font-size: 18px;
+            }
         }
 
 
@@ -116,6 +130,25 @@
         }
 
         /* Styles responsifs pour les cartes */
+        @media (max-width: 576px) {
+            .card-body {
+                padding: 1.25rem;
+            }
+            .input-group-lg > .form-control {
+                font-size: 0.95rem;
+            }
+            .input-group-text {
+                padding: 0.5rem 0.75rem;
+            }
+            h3 {
+                font-size: 1.5rem;
+            }
+            .container {
+                padding-left: 1.25rem;
+                padding-right: 1.25rem;
+            }
+        }
+        
         .card {
             background-color: var(--card-bg);
             border: 1px solid var(--card-border);
@@ -167,6 +200,12 @@
             align-items: center;
             justify-content: center;
             padding: 40px 0;
+        }
+        
+        @media (max-width: 576px) {
+            .main-content {
+                padding: 20px 0;
+            }
         }
 
         /* Cards */
@@ -292,6 +331,16 @@
             color: rgba(255, 255, 255, 0.8);
             padding: 20px 0;
             text-align: center;
+            width: 100%;
+            position: relative;
+            z-index: 10;
+        }
+        
+        @media (max-width: 576px) {
+            footer {
+                padding: 15px 0;
+                font-size: 0.85rem;
+            }
         }
 
         /* Animation */
@@ -348,6 +397,34 @@
 
         <!-- Scripts -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+        
+        <script>
+            // Gérer la hauteur de l'écran pour les appareils mobiles (problème de 100vh sur mobile)
+            function setAppHeight() {
+                const doc = document.documentElement;
+                doc.style.setProperty('--app-height', `${window.innerHeight}px`);
+            }
+            
+            // Initialisation et gestion des événements
+            window.addEventListener('DOMContentLoaded', function() {
+                setAppHeight();
+                
+                // Recalculer lors du redimensionnement ou du changement d'orientation
+                window.addEventListener('resize', setAppHeight);
+                window.addEventListener('orientationchange', setAppHeight);
+                
+                // Gestion du menu mobile
+                const navbarToggler = document.querySelector('.navbar-toggler');
+                if (navbarToggler) {
+                    navbarToggler.addEventListener('click', function() {
+                        // Ajouter un délai pour éviter un bug visuel sur certains appareils
+                        setTimeout(function() {
+                            setAppHeight();
+                        }, 100);
+                    });
+                }
+            });
+        </script>
 
 
     </body>
